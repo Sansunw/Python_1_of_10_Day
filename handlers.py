@@ -51,3 +51,7 @@ class HTMLRenderer(Handler):
         return '<a href="mailto:%s">%s</a>' % (match.group(1),match.group(1))
     def feed(self, data):
         print data
+
+self.addFilter(r'\*(.+?)\*', 'emphasis')
+self.addFilter(r'(http://[\.a-z0-9A-Z/]+)', 'url')
+self.addFilter(r'([\.a-zA-Z]+@[\.a-zA-Z]+[a-zA-Z]+)','mail')
